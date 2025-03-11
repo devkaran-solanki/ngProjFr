@@ -4,17 +4,19 @@ import Swiper from 'swiper'
 import { HeroSectionComponent } from '../hero-section/hero-section.component';
 import { FeaturedComponent } from '../featured/featured.component';
 import { PopularComponent } from '../popular/popular.component';
-import { JustArrievedComponent } from '../just-arrieved/just-arrieved.component';
+import { JustArrivedComponent } from '../just-arrived/just-arrived.component';
 import { DownloadComponent } from '../download/download.component';
 import { FreeDelComponent } from '../free-del/free-del.component';
 import { CartComponent } from '../cart/cart.component';
+import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-home',
   standalone: true, 
   imports: [
-    HeroSectionComponent, FeaturedComponent, PopularComponent, JustArrievedComponent,
-    DownloadComponent, FreeDelComponent, CartComponent
+    HeroSectionComponent, FeaturedComponent, PopularComponent, JustArrivedComponent,
+    DownloadComponent, FreeDelComponent, CartComponent, HeaderComponent, FooterComponent
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'] 
