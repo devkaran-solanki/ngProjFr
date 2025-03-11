@@ -1,0 +1,20 @@
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
+  <div class="offcanvas-header justify-content-between">
+      <h4 class="fw-normal text-uppercase fs-6">Menu</h4>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <a class="nav-link" routerLink="/cart">
+    🛒 Cart <span *ngIf="cartItems.length > 0">({{ cartItems.length }})</span>
+  </a>
+  <div class="offcanvas-body">
+    <p *ngIf="categories.length === 0">No categories available.</p>
+    <ul *ngIf="categories.length > 0" class="navbar-nav list-unstyled">
+          <li *ngFor="let category of categories" class="nav-item">
+            <a class="nav-link" (click)="viewCategory(category._id)"
+            [routerLink]="['/products', category._id]">
+              {{ category.name }}
+            </a>
+          </li>
+      </ul>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<!-- <div *ngIf="products.length > 0; else noProducts">
+  <div class="row">
+    <div class="col-md-3 mb-4" *ngFor="let product of products">
+      <div class="card shadow-sm">
+        <img [src]="product.images[0]" class="card-img-top" alt="{{ product.name }}" style="height: 400px; width:300px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">{{ product.description }}</p>
+          <p class="card-text fw-bold">${{ product.price }}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <button class="btn btn-primary">Add to Cart</button>
+            <small class="text-muted">{{ product.stock }} in stock</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noProducts>
+  <p class="text-center">No products found in this category.</p>
+</ng-template> -->
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar with categories -->
+    <div class="col-md-3">
+      <h4>Categories</h4>
+      <ul class="list-group">
+        <li class="list-group-item" (click)="viewAll()">View All</li>
+        <li *ngFor="let category of categories" class="list-group-item" (click)="filterByCategory(category._id)">
+          {{ category.name }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- Product Listing -->
+    <div class="col-md-9">
+      <div *ngIf="products.length > 0; else noProducts">
+        <div class="row">
+          <div class="col-md-4 mb-4" *ngFor="let product of products">
+            <div class="card shadow-sm">
+              <img [src]="product.images[0]" class="card-img-top" alt="{{ product.name }}" style="height: 300px; object-fit: cover;">
+              <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">{{ product.description }}</p>
+                <p class="fw-bold">${{ product.price }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <button class="btn btn-primary" (click)="addToCart(product)" routerLink="/cart">Add to Cart</button>
+                  <small class="text-muted">{{ product.stock }} in stock</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #noProducts>
+        <p class="text-center">No products found in this category.</p>
+      </ng-template>
+    </div>
+  </div>
+</div>
